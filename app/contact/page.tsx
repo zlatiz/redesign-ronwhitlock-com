@@ -1,192 +1,229 @@
-"use client";
-
-import { useState } from "react";
-
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
-    <div className="bg-white min-h-screen">
-      {/* Page Header */}
-      <div className="bg-black py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="font-script text-4xl md:text-5xl lg:text-6xl text-white text-center">
-            <span className="brush-stroke">CONTACT</span>
+    <div className="min-h-screen bg-background-dark">
+      {/* Hero Section */}
+      <section className="relative py-20 md:py-28 px-4 md:px-10 bg-gradient-to-b from-primary/10 to-transparent">
+        <div className="mx-auto max-w-[1200px]">
+          <h1 className="font-display text-4xl md:text-6xl font-black leading-tight tracking-tight text-white text-center">
+            Contact Us
           </h1>
-          <p className="text-neutral-muted text-center mt-4 max-w-2xl mx-auto">
-            Get in touch with Ron Whitlock Reports
-          </p>
+          <div className="mx-auto mt-4 h-1 w-20 bg-primary"></div>
         </div>
-      </div>
+      </section>
 
       {/* Contact Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div>
-            <h2 className="text-2xl font-bold text-black mb-6">Send a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-black mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent outline-none transition-all duration-200"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-black mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent outline-none transition-all duration-200"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-black mb-2">
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent outline-none transition-all duration-200"
-                  required
-                >
-                  <option value="">Select a subject</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="advertising">Advertising</option>
-                  <option value="press">Press Inquiry</option>
-                  <option value="feedback">Feedback</option>
-                </select>
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-black mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows={6}
-                  className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-accent-purple focus:border-transparent outline-none transition-all duration-200 resize-none"
-                  required
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-accent-purple hover:bg-accent-violet text-white font-medium px-8 py-3 rounded-lg transition-colors duration-200"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-8">
+      <section className="py-16 md:py-20 px-4 md:px-10">
+        <div className="mx-auto max-w-[1000px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {/* Contact Info */}
             <div>
-              <h2 className="text-2xl font-bold text-black mb-6">Contact Information</h2>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-5 h-5 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-100 mb-6">
+                Get In Touch
+              </h2>
+              <p className="text-slate-300 leading-relaxed mb-8">
+                Have a news tip? Want to be a guest on our show? We&apos;d love
+                to hear from you. Reach out through any of the following
+                channels.
+              </p>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-medium text-black">Email</h3>
-                    <p className="text-neutral-gray">contact@ronwhitlock.com</p>
+                    <h3 className="font-display text-lg font-bold text-slate-100 mb-1">
+                      Email
+                    </h3>
+                    <a
+                      href="mailto:tips@ronwhitlockreports.com"
+                      className="text-slate-400 hover:text-primary transition-colors"
+                    >
+                      tips@ronwhitlockreports.com
+                    </a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <div className="w-10 h-10 bg-accent-purple/10 rounded-lg flex items-center justify-center mr-4">
-                    <svg className="w-5 h-5 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+
+                <div className="flex items-start gap-4">
+                  <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-medium text-black">Location</h3>
-                    <p className="text-neutral-gray">Coastal Bend, Texas</p>
+                    <h3 className="font-display text-lg font-bold text-slate-100 mb-1">
+                      Phone
+                    </h3>
+                    <p className="text-slate-400">(555) 123-4567</p>
                   </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
+                    <svg
+                      className="w-6 h-6"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-display text-lg font-bold text-slate-100 mb-1">
+                      Broadcast Area
+                    </h3>
+                    <p className="text-slate-400">
+                      KUQI FOX38 - Coastal Bend
+                      <br />
+                      TV 9 - Rio Grande Valley
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="mt-10">
+                <h3 className="font-display text-lg font-bold text-slate-100 mb-4">
+                  Follow Us
+                </h3>
+                <div className="flex gap-4">
+                  <a
+                    href="#"
+                    className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-slate-400 hover:text-primary hover:bg-primary/20 transition-all"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </a>
+                  <a
+                    href="#"
+                    className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-slate-400 hover:text-primary hover:bg-primary/20 transition-all"
+                  >
+                    <svg
+                      className="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Watch Info */}
-            <div className="bg-black rounded-lg p-6">
-              <h3 className="text-lg font-semibold text-white mb-4">WHERE TO WATCH?</h3>
-              <ul className="space-y-3 text-neutral-muted">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-accent-purple rounded-full mr-3"></span>
-                  AIRING ON KUQI FOX38 in the Coastal Bend!!
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-accent-purple rounded-full mr-3"></span>
-                  Also catch us on TV 9 In the RGV1
-                </li>
-              </ul>
-            </div>
-
-            {/* Social Links */}
+            {/* Contact Form */}
             <div>
-              <h3 className="text-lg font-semibold text-black mb-4">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center hover:bg-accent-purple hover:text-white transition-all duration-200"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center hover:bg-accent-purple hover:text-white transition-all duration-200"
-                >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                  </svg>
-                </a>
+              <div className="rounded-xl border border-primary/20 bg-background-dark/50 p-6 md:p-8">
+                <h2 className="font-display text-2xl font-bold text-slate-100 mb-6">
+                  Send a Message
+                </h2>
+                <form className="space-y-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
+                      Your Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full px-4 py-3 rounded-lg bg-background-dark border border-primary/20 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-3 rounded-lg bg-background-dark border border-primary/20 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      className="w-full px-4 py-3 rounded-lg bg-background-dark border border-primary/20 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+                      placeholder="News Tip / Guest Inquiry / Other"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-slate-300 mb-2"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-lg bg-background-dark border border-primary/20 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-primary transition-colors resize-none"
+                      placeholder="Tell us what's on your mind..."
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full bg-primary text-white py-4 rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+                  >
+                    Send Message
+                  </button>
+                </form>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

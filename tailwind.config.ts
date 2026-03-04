@@ -6,35 +6,23 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: "#faf5ff",
-          100: "#f3e8ff",
-          200: "#e9d5ff",
-          300: "#d8b4fe",
-          400: "#c084fc",
-          500: "#a855f7",
-          600: "#9333ea",
-          700: "#7c3aed",
-          800: "#6b21a8",
-          900: "#581c87",
-        },
-        accent: {
-          purple: "#8B5CF6",
-          violet: "#7C3AED",
-        },
-        neutral: {
-          dark: "#000000",
-          light: "#FFFFFF",
-          gray: "#6B7280",
-          muted: "#9CA3AF",
-        },
+        primary: "#e1194b",
+        "background-light": "#f8f6f6",
+        "background-dark": "#211115",
+        "footer-dark": "#12090b",
       },
       fontFamily: {
-        script: ["var(--font-dancing-script)", "cursive"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-newsreader)", "serif"],
+        sans: ["var(--font-noto-sans)", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
       },
     },
   },

@@ -1,15 +1,15 @@
 import Hero from "@/components/Hero";
-import AboutSection from "@/components/AboutSection";
+import FocusAreas from "@/components/FocusAreas";
+import Stats from "@/components/Stats";
 import LatestVideos from "@/components/LatestVideos";
-import StatsBar from "@/components/StatsBar";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <AboutSection />
+      <FocusAreas />
+      <Stats />
       <LatestVideos />
-      <StatsBar />
     </>
   );
 }
