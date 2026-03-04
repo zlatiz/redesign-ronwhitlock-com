@@ -1,43 +1,89 @@
-import Link from 'next/link';
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact", href: "/contact" },
+];
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-primary">RWR</div>
-            <div className="text-sm font-semibold text-gray-800">Reports</div>
-          </Link>
+    <header className="bg-white py-4 px-6 lg:px-12 sticky top-0 z-50 shadow-sm">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <span className="text-navy-900 font-bold text-lg tracking-tight">
+            RON WHITLOCK<br />
+            <span className="text-navy-900">REPORTS</span>
+          </span>
+        </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
-              Home
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              className="text-slate-600 hover:text-navy-900 font-medium text-sm transition-colors"
+            >
+              {item.label}
             </Link>
-            <Link href="/bio" className="text-gray-700 hover:text-primary transition-colors">
-              Ron's Bio
-            </Link>
-            <Link href="/videos" className="text-gray-700 hover:text-primary transition-colors">
-              Videos
-            </Link>
-            <Link href="/transcripts" className="text-gray-700 hover:text-primary transition-colors">
-              Transcripts
-            </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-primary transition-colors">
-              Contact
-            </Link>
-            <Link href="/search" className="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary-dark transition-colors">
-              Search
-            </Link>
+          ))}
+        </nav>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden p-2"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6 text-navy-900"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            {mobileMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <nav className="md:hidden mt-4 pb-4 border-t border-slate-200 pt-4">
+          <div className="flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-slate-600 hover:text-navy-900 font-medium text-sm transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </div>
-
-          <button className="md:hidden p-2">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      </nav>
+        </nav>
+      )}
     </header>
   );
 }

@@ -1,47 +1,56 @@
 export default function TranscriptsPage() {
-  const transcripts = [
-    {
-      title: 'Trump Claims Disputed by Cuellar',
-      date: 'Recent Episode',
-    },
-    {
-      title: 'Senator files Bill to Expedite 2nd Bridge for SPI',
-      date: 'Recent Episode',
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-primary-700 py-20 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             TRANSCRIPTS
           </h1>
-          <p className="text-lg text-gray-700">
-            Read transcripts from Ron Whitlock Reports episodes
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            Full transcripts of our broadcasts
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="space-y-6">
-          {transcripts.map((transcript, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-              <div className="flex justify-between items-start">
+      {/* Content */}
+      <section className="py-16 px-6 lg:px-12">
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-6">
+            <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                    {transcript.title}
+                  <h3 className="text-lg font-bold text-navy-900 mb-2">
+                    Trump Claims Disputed by Cuellar
                   </h3>
-                  <p className="text-gray-600">{transcript.date}</p>
+                  <p className="text-slate-600 text-sm">
+                    Full transcript of the roundtable discussion on political developments.
+                  </p>
                 </div>
-                <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary-dark transition-colors">
-                  Read Transcript
+                <button className="px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors">
+                  View
                 </button>
               </div>
             </div>
-          ))}
+
+            <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-navy-900 mb-2">
+                    Senator files Bill to Expedite 2nd Bridge for SPI
+                  </h3>
+                  <p className="text-slate-600 text-sm">
+                    Full transcript of the legislative coverage and analysis.
+                  </p>
+                </div>
+                <button className="px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 transition-colors">
+                  View
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

@@ -1,59 +1,80 @@
-export default function VideosPage() {
-  const videos = [
-    {
-      title: 'Trump Claims Disputed by Cuellar',
-      description: 'Watch the latest episode discussing important political developments'
-    },
-    {
-      title: 'Senator files Bill to Expedite 2nd Bridge for SPI',
-      description: 'Legislative updates on infrastructure projects'
-    }
-  ];
+const videos = [
+  {
+    title: "Trump Claims Disputed by Cuellar",
+    description: "In-depth analysis and roundtable discussion on recent political developments.",
+    category: "Legislative Updates",
+  },
+  {
+    title: "Senator files Bill to Expedite 2nd Bridge for SPI",
+    description: "Coverage of the latest legislative initiatives affecting South Padre Island.",
+    category: "Legislative Updates",
+  },
+];
 
+export default function VideosPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-br from-blue-50 to-blue-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen bg-white">
+      {/* Hero Banner */}
+      <section className="bg-gradient-to-br from-navy-900 via-navy-800 to-primary-700 py-20 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             VIDEOS
           </h1>
-          <p className="text-lg text-gray-700">
-            Watch the latest episodes of Ron Whitlock Reports
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+            LATEST VIDEOS
           </p>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">LATEST VIDEOS</h2>
-          <p className="text-gray-600">ADVERTISEMENTS:</p>
-        </div>
+      {/* Videos Grid */}
+      <section className="py-16 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8">
+            {videos.map((video, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group"
+              >
+                {/* Video Thumbnail Placeholder */}
+                <div className="aspect-video bg-gradient-to-br from-navy-800 to-primary-700 relative">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 bg-primary-600 text-white text-xs font-semibold rounded-full">
+                      {video.category}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-navy-900 mb-2 group-hover:text-primary-600 transition-colors">
+                    {video.title}
+                  </h3>
+                  <p className="text-slate-600">
+                    {video.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {videos.map((video, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="aspect-video bg-gray-200 flex items-center justify-center">
-                <svg className="w-20 h-20 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                  {video.title}
-                </h3>
-                <p className="text-gray-600 mb-4">{video.description}</p>
-                <button className="text-primary font-semibold hover:text-primary-dark transition-colors">
-                  Watch Now →
-                </button>
-              </div>
+          {/* Advertisements Section */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-navy-900 mb-8 text-center">ADVERTISEMENTS:</h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="aspect-video bg-slate-100 rounded-xl border border-slate-200 flex items-center justify-center">
+                  <span className="text-slate-400 font-medium">Ad Space {i}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
-
-        <div className="mt-8 text-center">
-          <p className="text-gray-600">ADVERTISEMENTS:</p>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
