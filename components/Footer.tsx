@@ -1,40 +1,39 @@
 import Link from "next/link";
 
 const footerLinks = {
-  company: [
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Careers", href: "/careers" },
+  reports: [
+    { label: "Videos", href: "/videos" },
+    { label: "Transcripts", href: "/transcripts" },
+    { label: "Archives", href: "/videos" },
   ],
-  expertise: [
-    { label: "Markets", href: "/markets" },
-    { label: "Analysis", href: "/analysis" },
-    { label: "Trends", href: "/trends" },
-  ],
-  legal: [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
+  about: [
+    { label: "Ron's Bio", href: "/bio" },
+    { label: "The Shepherd Group", href: "/bio" },
+    { label: "Our Mission", href: "/bio" },
   ],
   contact: [
-    { label: "Email", href: "/contact" },
-    { label: "Phone", href: "/contact" },
-    { label: "Location", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
+    { label: "Advertising", href: "/contact" },
+    { label: "Press Kit", href: "/contact" },
   ],
 };
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-white py-12 px-6 lg:px-12">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-black text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Reports Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <h3 className="text-xs font-semibold tracking-wider uppercase mb-4">
+              REPORTS
+            </h3>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
+              {footerLinks.reports.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-white text-sm transition-colors"
+                    className="text-sm text-neutral-muted hover:text-white transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -42,14 +41,18 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* About Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Expertise</h4>
+            <h3 className="text-xs font-semibold tracking-wider uppercase mb-4">
+              ABOUT
+            </h3>
             <ul className="space-y-2">
-              {footerLinks.expertise.map((link) => (
+              {footerLinks.about.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-white text-sm transition-colors"
+                    className="text-sm text-neutral-muted hover:text-white transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -57,29 +60,18 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          {/* Contact Column */}
           <div>
-            <h4 className="font-semibold text-white mb-4">Legal</h4>
-            <ul className="space-y-2">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-slate-400 hover:text-white text-sm transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <h3 className="text-xs font-semibold tracking-wider uppercase mb-4">
+              CONTACT
+            </h3>
             <ul className="space-y-2">
               {footerLinks.contact.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-slate-400 hover:text-white text-sm transition-colors"
+                    className="text-sm text-neutral-muted hover:text-white transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -88,9 +80,11 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-slate-700 pt-8 text-center">
-          <p className="text-slate-400 text-sm">
-            © 2024 Ron Whitlock Reports. All rights reserved.
+
+        {/* Copyright */}
+        <div className="mt-12 pt-8 border-t border-neutral-800">
+          <p className="text-sm text-neutral-muted text-center">
+            Copyright 2016 © The Shepherd Group. All rights reserved.
           </p>
         </div>
       </div>
